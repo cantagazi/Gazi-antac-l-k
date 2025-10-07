@@ -54,3 +54,57 @@ footer {
   color: #666;
   border-top: 1px solid #ddd;
 }
+/* Mobil uyum için genel ayarlar */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Başlık hizalaması */
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Galeri düzeni */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer düzeni */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #eee;
+  font-size: 14px;
+}
+
+/* Küçük ekranlar (telefonlar) için özel düzen */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
