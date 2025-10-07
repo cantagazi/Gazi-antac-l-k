@@ -1,110 +1,75 @@
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  background-color: #fafafa;
+  color: #222;
 }
 
-body {
-  background: #fdfdfd;
-  color: #333;
-  text-align: center;
-}
-
+/* HEADER */
 header {
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, #cba135, #f4e3b2);
-  color: white;
-  border-bottom: 4px solid #b8901b;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-}
-
-p {
-  font-size: 1.1rem;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 2rem;
-}
-
-.gallery img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-footer {
-  background: #eee;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #666;
-  border-top: 1px solid #ddd;
-}
-/* Mobil uyum için genel ayarlar */
-body {
+header h1 {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  font-size: 1.8em;
 }
 
-/* Başlık hizalaması */
-header {
+nav {
+  margin-top: 8px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #d42d2d;
+}
+
+/* HERO */
+.hero {
   text-align: center;
-  padding: 20px;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  color: #333;
 }
 
-/* Galeri düzeni */
+.hero h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.1em;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #d42d2d;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background-color: #a71d1d;
+}
+
+/* GALLERY */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-  padding: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.2s ease-in-out;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-/* Footer düzeni */
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #eee;
-  font-size: 14px;
-}
-
-/* Küçük ekranlar (telefonlar) için özel düzen */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.5em;
-  }
-
-  p {
-    font-size: 0.9em;
-  }
-
-  .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
@@ -122,6 +87,30 @@ footer {
 .gallery img:hover {
   transform: scale(1.1);
 }
-.
+
+/* ABOUT */
+.about {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+/* FOOTER */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+}
+
+/* MOBİL UYUMLU */
+@media (max-width: 600px) {
+  .hero h2 {
+    font-size: 1.5em;
+  }
+
+  .gallery img {
+    width: 150px;
   }
 }
