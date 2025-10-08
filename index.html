@@ -3,18 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gazi Çanta | Kalitenin Adresi</title>
+  <title>Gazi Çanta | Lüksün Yeni Adı</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Hoşgeldiniz ekranı -->
+  <!-- Hoşgeldiniz Ekranı -->
   <section id="welcome">
-    <div class="welcome-box">
-      <h1 class="brand-title">Gazi Çanta</h1>
-      <p class="welcome-sub">Şıklığın ve kalitenin birleştiği adres</p>
-      <button class="enter-btn" onclick="enterSite()">Siteye Gir</button>
+    <div class="overlay"></div>
+    <div class="welcome-content">
+      <h1>Gazi Çanta</h1>
+      <p>Kalite. Zarafet. Güç.</p>
+      <button onclick="enterSite()">Siteye Gir</button>
     </div>
   </section>
+
+  <!-- Üst Menü -->
+  <header id="header" class="hidden">
+    <h2>👜 Gazi Çanta</h2>
+    <nav>
+      <a href="#products">Çantalar</a>
+      <a href="#about">Hakkımızda</a>
+      <a href="#contact">İletişim</a>
+    </nav>
+  </header>
 
   <!-- Ürünler -->
   <section id="products" class="hidden">
@@ -22,52 +33,69 @@
     <div class="grid">
       <div class="card">
         <img src="images/prada.jpg" alt="Prada Çanta">
-        <h3>Prada Çanta</h3>
+        <h3>Prada</h3>
         <p>Fiyat: 200 TL</p>
-        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
+        <a href="https://www.shopier.com/" target="_blank" class="btn">Satın Al</a>
       </div>
-
-      <div class="card">
-        <img src="images/tommy.jpg" alt="Tommy Hilfiger Çanta">
-        <h3>Tommy Hilfiger Çanta</h3>
-        <p>Fiyat: 200 TL</p>
-        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
-      </div>
-
-      <div class="card">
-        <img src="images/boss.jpg" alt="Boss Çanta">
-        <h3>Boss Çanta</h3>
-        <p>Fiyat: 200 TL</p>
-        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
-      </div>
-
       <div class="card">
         <img src="images/louis.jpg" alt="Louis Vuitton Çanta">
-        <h3>Louis Vuitton Çanta</h3>
+        <h3>Louis Vuitton</h3>
         <p>Fiyat: 200 TL</p>
-        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
+        <a href="https://www.shopier.com/" target="_blank" class="btn">Satın Al</a>
       </div>
-
+      <div class="card">
+        <img src="images/boss.jpg" alt="Boss Çanta">
+        <h3>Boss</h3>
+        <p>Fiyat: 200 TL</p>
+        <a href="https://www.shopier.com/" target="_blank" class="btn">Satın Al</a>
+      </div>
+      <div class="card">
+        <img src="images/tommy.jpg" alt="Tommy Hilfiger Çanta">
+        <h3>Tommy Hilfiger</h3>
+        <p>Fiyat: 200 TL</p>
+        <a href="https://www.shopier.com/" target="_blank" class="btn">Satın Al</a>
+      </div>
       <div class="card">
         <img src="images/hugo.jpg" alt="Hugo Çanta">
-        <h3>Hugo Çanta</h3>
+        <h3>Hugo</h3>
         <p>Fiyat: 200 TL</p>
-        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
+        <a href="https://www.shopier.com/" target="_blank" class="btn">Satın Al</a>
       </div>
-
       <div class="card">
         <img src="images/ea7.jpg" alt="EA7 Çanta">
-        <h3>EA7 Çanta</h3>
+        <h3>EA7</h3>
         <p>Fiyat: 200 TL</p>
-        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
+        <a href="https://www.shopier.com/" target="_blank" class="btn">Satın Al</a>
       </div>
     </div>
   </section>
 
+  <!-- Hakkımızda -->
+  <section id="about" class="hidden">
+    <h2>Hakkımızda</h2>
+    <p>
+      Gazi Çanta, lüks ve zarafeti herkes için ulaşılabilir kılmak amacıyla kurulmuştur.  
+      Her çantamız, özgün tasarımı ve üstün kalitesiyle fark yaratır.  
+      Amacımız, stilinizi güçlendiren bir marka olmaktır.
+    </p>
+  </section>
+
+  <!-- İletişim -->
+  <section id="contact" class="hidden">
+    <h2>İletişim</h2>
+    <p>📞 +90 555 000 0000</p>
+    <p>📧 info@gazicanta.com</p>
+    <p>📍 Ankara, Türkiye</p>
+  </section>
+
+  <footer class="hidden">
+    <p>© 2025 Gazi Çanta | Tüm Hakları Saklıdır.</p>
+  </footer>
+
   <script>
     function enterSite() {
       document.getElementById('welcome').style.display = 'none';
-      document.getElementById('products').classList.remove('hidden');
+      document.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));
     }
   </script>
 </body>
