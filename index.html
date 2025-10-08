@@ -7,95 +7,67 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Hoş geldiniz ekranı -->
+  <!-- Hoşgeldiniz ekranı -->
   <section id="welcome">
     <div class="welcome-box">
       <h1 class="brand-title">Gazi Çanta</h1>
-      <p class="welcome-sub">Şıklık ve kaliteyi bir araya getiren özel tasarımlar.</p>
-      <div class="welcome-cta" onclick="enterSite()">Siteye Gir</div>
-    </div>
-  </section>
-
-  <!-- Üst menü -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="logo">
-        <span class="title">Gazi Çanta</span>
-      </div>
-      <nav class="nav">
-        <a href="#" onclick="showInfo()">Hakkımızda</a>
-        <a href="#" onclick="showProducts()">Çantalarımız</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Bilgi sayfası -->
-  <section id="info">
-    <div class="info-box">
-      <h2>Hakkımızda</h2>
-      <p>Gazi Çanta, kaliteden ödün vermeden şıklığı ve dayanıklılığı bir araya getiren özel bir markadır. Her çantamız ustalıkla üretilmiş, modern tasarımlarla tamamlanmıştır.</p>
-      <div class="info-btn" onclick="showProducts()">Çantalarımızı Gör</div>
+      <p class="welcome-sub">Şıklığın ve kalitenin birleştiği adres</p>
+      <button class="enter-btn" onclick="enterSite()">Siteye Gir</button>
     </div>
   </section>
 
   <!-- Ürünler -->
-  <section id="products">
-    <div class="section-head">
-      <h2>Çantalarımız</h2>
-      <p>Kalite ve zarafeti bir arada sunuyoruz.</p>
-    </div>
-
+  <section id="products" class="hidden">
+    <h2>Çantalarımız</h2>
     <div class="grid">
       <div class="card">
-        <div class="imgwrap">
-          <img src="images/canta1.jpg" alt="Boss Çanta">
-        </div>
+        <img src="images/prada.jpg" alt="Prada Çanta">
+        <h3>Prada Çanta</h3>
+        <p>Fiyat: 200 TL</p>
+        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
+      </div>
+
+      <div class="card">
+        <img src="images/tommy.jpg" alt="Tommy Hilfiger Çanta">
+        <h3>Tommy Hilfiger Çanta</h3>
+        <p>Fiyat: 200 TL</p>
+        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
+      </div>
+
+      <div class="card">
+        <img src="images/boss.jpg" alt="Boss Çanta">
         <h3>Boss Çanta</h3>
-        <p class="price">200 TL</p>
+        <p>Fiyat: 200 TL</p>
+        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
       </div>
 
       <div class="card">
-        <div class="imgwrap">
-          <img src="images/canta2.jpg" alt="Tommy Hilfiger Çanta">
-        </div>
-        <h3>Tommy Hilfiger</h3>
-        <p class="price">200 TL</p>
+        <img src="images/louis.jpg" alt="Louis Vuitton Çanta">
+        <h3>Louis Vuitton Çanta</h3>
+        <p>Fiyat: 200 TL</p>
+        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
       </div>
 
       <div class="card">
-        <div class="imgwrap">
-          <img src="images/canta3.jpg" alt="Gucci Çanta">
-        </div>
-        <h3>Gucci</h3>
-        <p class="price">200 TL</p>
+        <img src="images/hugo.jpg" alt="Hugo Çanta">
+        <h3>Hugo Çanta</h3>
+        <p>Fiyat: 200 TL</p>
+        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
       </div>
 
       <div class="card">
-        <div class="imgwrap">
-          <img src="images/canta4.jpg" alt="Dior Çanta">
-        </div>
-        <h3>Dior</h3>
-        <p class="price">200 TL</p>
+        <img src="images/ea7.jpg" alt="EA7 Çanta">
+        <h3>EA7 Çanta</h3>
+        <p>Fiyat: 200 TL</p>
+        <a href="https://www.shopier.com/" target="_blank" class="buy-btn">Satın Al</a>
       </div>
     </div>
   </section>
 
-  <footer>
-    © 2025 Gazi Çanta — Tüm hakları saklıdır.
-  </footer>
-
   <script>
-    function enterSite(){
-      document.getElementById('welcome').classList.add('hidden');
-      document.getElementById('info').style.display = 'block';
-    }
-    function showInfo(){
-      document.getElementById('info').style.display = 'block';
-      document.getElementById('products').style.display = 'none';
-    }
-    function showProducts(){
-      document.getElementById('info').style.display = 'none';
-      document.getElementById('products').style.display = 'block';
+    function enterSite() {
+      document.getElementById('welcome').style.display = 'none';
+      document.getElementById('products').classList.remove('hidden');
     }
   </script>
 </body>
