@@ -198,6 +198,21 @@ nav a:hover {
   }
 
   .card p {
+    /* === ÇANTA GÖRSELLERİNİ ORTALA ve BOYUTU AYARLA === */
+.card img {
+  width: 80%;
+  height: auto;
+  margin: 20px auto 10px;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
     font-size: 0.95rem;
   }
 }
