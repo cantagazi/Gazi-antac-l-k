@@ -1,301 +1,102 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>GAZİ ÇANTA — Kalitenin Adresi</title>
-
-<!-- Tek dosya: CSS burada (kopyala yapıştır sonrası ayrı style.css istersen ayırabilirsin) -->
-<style>
-:root{
-  --accent: #caa231;
-  --muted:#7a7a7a;
-  --bg-dark:#0f0f10;
-  --card:#ffffff;
-  --gold: linear-gradient(90deg,#ffd66b,#f7c94b);
-  --radius:14px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  background: radial-gradient(ellipse at top left,#0b0b0b 0%, #141414 60%);
-  color:#fff;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-
-/* ===== WELCOME (ilk açılan ekran) ===== */
-#welcome {
-  position:fixed; inset:0; z-index:999;
-  display:flex; align-items:center; justify-content:center;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url('images/background.jpg') center/cover no-repeat;
-  transition:opacity .8s ease, visibility .8s;
-}
-#welcome.hidden{ opacity:0; visibility:hidden; pointer-events:none; }
-
-.welcome-box{
-  max-width:920px;
-  width:92%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-  border-radius:20px;
-  padding:36px;
-  border: 1px solid rgba(255,215,0,0.08);
-  box-shadow: 0 10px 50px rgba(0,0,0,0.6), 0 0 25px rgba(255,215,0,0.03) inset;
-  text-align:center;
-}
-.brand-title{ font-size:2.2rem; color:#ffdc78; margin-bottom:6px; text-shadow:0 6px 18px rgba(0,0,0,0.6);}
-.welcome-sub{ color:#f0e6c8; opacity:0.95; margin-bottom:18px; font-size:1.05rem; }
-.welcome-cta{
-  display:inline-block;
-  padding:12px 28px;
-  background: #ffd66b;
-  color:#111;
-  border-radius:999px;
-  font-weight:700;
-  cursor:pointer;
-  box-shadow: 0 10px 30px rgba(255,214,100,0.18);
-  transition: transform .22s ease, box-shadow .22s;
-}
-.welcome-cta:hover{ transform: translateY(-4px); box-shadow: 0 18px 40px rgba(255,214,100,0.28); }
-
-/* ===== HEADER (üst menü) ===== */
-.header{
-  position:sticky; top:0; z-index:80;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255,215,0,0.04);
-}
-.header-inner{
-  max-width:1100px; margin:0 auto; padding:12px 16px;
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;color:#ffd66b}
-.logo .title{font-size:1.1rem}
-.nav{display:flex;gap:14px;align-items:center}
-.nav a{ color:#e9e9e9; text-decoration:none; font-weight:600; padding:6px 8px; border-radius:8px; transition:.18s}
-.nav a:hover{ color:#111; background:#ffd66b; }
-
-/* ===== INFO / TANITIM SAYFASI ===== */
-#info{
-  display:none;
-  padding:56px 20px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0));
-  color:#f7f5e9;
-  text-align:center;
-}
-.info-box{ max-width:980px; margin:0 auto; }
-.info-box h2{ font-size:1.8rem; color:#ffd66b; margin-bottom:8px;}
-.info-box p{ color:#ddd; line-height:1.6; margin-bottom:18px; font-size:1.02rem;}
-.info-btn{ padding:10px 22px; background:#ffd66b; color:#111; border-radius:8px; font-weight:700; cursor:pointer; }
-
-/* ===== GALLERY / ÇANTALAR ===== */
-#products{ padding:40px 18px 80px; }
-.section-head{ text-align:center; margin-bottom:18px; }
-.section-head h2{ color:#fff; font-size:1.6rem; margin-bottom:6px; }
-.section-head p{ color:var(--muted); }
-
-/* grid kartlar */
-.grid{
-  max-width:1100px; margin:0 auto;
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap:22px;
-  align-items:start;
-}
-
-/* her ürün kartı */
-.card{
-  background: linear-gradient(180deg,#ffffff, #fffefe);
-  color:#111;
-  border-radius:14px;
-  padding:14px;
-  overflow:hidden;
-  text-align:center;
-  transition: transform .32s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
-  box-shadow: 0 8px 26px rgba(2,2,2,0.08);
-}
-.card:hover{ transform: translateY(-8px); box-shadow: 0 18px 48px rgba(2,2,2,0.14); }
-
-.card .imgwrap{
-  width:100%;
-  height:200px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: linear-gradient(180deg,#f7f7f7,#efefef);
-  border-radius:10px;
-  overflow:hidden;
-  margin-bottom:12px;
-}
-.card img{
-  max-width:86%;
-  max-height:100%;
-  object-fit:contain;
-  display:block;
-  transition: transform .32s ease;
-  border-radius:8px;
-}
-.card:hover img{ transform: scale(1.04); filter:brightness(1.03); }
-
-.card h3{ margin:8px 0 4px; font-size:1.05rem; font-weight:700; color:#222; }
-.card p.price{ color:#0b7a3a; font-weight:800; font-size:1.05rem; }
-
-/* alt bilgi satırı (isteğe bağlı) */
-.card .meta{ font-size:0.9rem; color:var(--muted); margin-top:6px }
-
-/* responsive tweaks */
-@media (max-width:820px){
-  .welcome-box{ padding:26px }
-  .card .imgwrap{ height:180px }
-}
-@media (max-width:480px){
-  .welcome-box{ padding:20px }
-  .brand-title{ font-size:1.6rem }
-  .card .imgwrap{ height:150px }
-}
-
-/* küçük, zarif footer */
-footer{ text-align:center; padding:24px 14px; color:#cfcfcf; font-size:0.95rem; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0)); border-top:1px solid rgba(255,255,255,0.02)}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gazi Çanta | Kalitenin Adresi</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<!-- WELCOME (ilk açılan ekran) -->
-<section id="welcome">
-  <div class="welcome-box">
-    <div style="display:flex; justify-content:center; align-items:center; gap:14px;">
-      <div style="width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#ffd66b,#f7c94b);display:flex;align-items:center;justify-content:center;font-weight:800;color:#111;font-size:22px">GÇ</div>
+  <!-- Hoş geldiniz ekranı -->
+  <section id="welcome">
+    <div class="welcome-box">
+      <h1 class="brand-title">Gazi Çanta</h1>
+      <p class="welcome-sub">Şıklık ve kaliteyi bir araya getiren özel tasarımlar.</p>
+      <div class="welcome-cta" onclick="enterSite()">Siteye Gir</div>
     </div>
-    <div style="padding:14px 10px 0;">
-      <div class="brand-title">GAZİ ÇANTA — Kalitenin Adresi</div>
-      <div class="welcome-sub">Zarafet. Kalite. Uygun fiyat. Tarzınızı çantalarla tamamlayın.</div>
-      <button class="welcome-cta" id="enterBtn">Siteye Gir</button>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- HEADER (gizli önce; info gösterildikten sonra görünür) -->
-<header class="header" id="siteHeader" style="display:none;">
-  <div class="header-inner">
-    <div class="logo"><span style="font-size:18px">💼</span><span class="title">GAZİ ÇANTA</span></div>
-    <nav class="nav">
-      <a href="#welcome" onclick="goToWelcome(event)">Anasayfa</a>
-      <a href="#info" onclick="goToInfo(event)">Hakkımızda</a>
-      <a href="#products" onclick="goToProducts(event)">Çantalarımız</a>
-      <a href="#contact" onclick="goToContact(event)">İletişim</a>
-    </nav>
-  </div>
-</header>
-
-<!-- Bilgi / Hakkımızda (ilk Siteye Gir'den sonra açılacak) -->
-<section id="info" style="display:none;">
-  <div class="info-box">
-    <h2>Biz Kimiz?</h2>
-    <p>
-      Gazi Çanta, seçkin tasarımları uygun fiyatlarla buluşturan bir vitrindir. Her model titizlikle seçilir; kalite ve şıklık bizim önceliğimizdir.
-    </p>
-    <button class="info-btn" id="seeProductsBtn">Çantalarımıza Göz At</button>
-  </div>
-</section>
-
-<!-- ÜRÜNLER / ÇANTALAR -->
-<section id="products" style="display:none;">
-  <div class="section-head">
-    <h2>Çantalarımız</h2>
-    <p>Popüler modellerimiz — her biri ₺300</p>
-  </div>
-
-  <div class="grid">
-    <!-- Kart 1 -->
-    <div class="card">
-      <div class="imgwrap">
-        <img src="images/canta1.jpg" alt="Louis Vuitton" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80'">
+  <!-- Üst menü -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="title">Gazi Çanta</span>
       </div>
-      <h3>Louis Vuitton</h3>
-      <p class="price">₺300</p>
-      <div class="meta">Klasik monogram tasarım</div>
+      <nav class="nav">
+        <a href="#" onclick="showInfo()">Hakkımızda</a>
+        <a href="#" onclick="showProducts()">Çantalarımız</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Bilgi sayfası -->
+  <section id="info">
+    <div class="info-box">
+      <h2>Hakkımızda</h2>
+      <p>Gazi Çanta, kaliteden ödün vermeden şıklığı ve dayanıklılığı bir araya getiren özel bir markadır. Her çantamız ustalıkla üretilmiş, modern tasarımlarla tamamlanmıştır.</p>
+      <div class="info-btn" onclick="showProducts()">Çantalarımızı Gör</div>
+    </div>
+  </section>
+
+  <!-- Ürünler -->
+  <section id="products">
+    <div class="section-head">
+      <h2>Çantalarımız</h2>
+      <p>Kalite ve zarafeti bir arada sunuyoruz.</p>
     </div>
 
-    <!-- Kart 2 -->
-    <div class="card">
-      <div class="imgwrap">
-        <img src="images/canta2.jpg" alt="Gucci" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1520975914054-1f7b3ba9f3c7?auto=format&fit=crop&w=800&q=80'">
+    <div class="grid">
+      <div class="card">
+        <div class="imgwrap">
+          <img src="images/canta1.jpg" alt="Boss Çanta">
+        </div>
+        <h3>Boss Çanta</h3>
+        <p class="price">200 TL</p>
       </div>
-      <h3>Gucci</h3>
-      <p class="price">₺300</p>
-      <div class="meta">Lüks dokulu yüzey</div>
-    </div>
 
-    <!-- Kart 3 -->
-    <div class="card">
-      <div class="imgwrap">
-        <img src="images/canta3.jpg" alt="Tommy Hilfiger" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=800&q=80'">
+      <div class="card">
+        <div class="imgwrap">
+          <img src="images/canta2.jpg" alt="Tommy Hilfiger Çanta">
+        </div>
+        <h3>Tommy Hilfiger</h3>
+        <p class="price">200 TL</p>
       </div>
-      <h3>Tommy Hilfiger</h3>
-      <p class="price">₺300</p>
-      <div class="meta">Modern ve sade</div>
-    </div>
 
-    <!-- Kart 4 -->
-    <div class="card">
-      <div class="imgwrap">
-        <img src="images/canta4.jpg" alt="Boss" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80'">
+      <div class="card">
+        <div class="imgwrap">
+          <img src="images/canta3.jpg" alt="Gucci Çanta">
+        </div>
+        <h3>Gucci</h3>
+        <p class="price">200 TL</p>
       </div>
-      <h3>Boss</h3>
-      <p class="price">₺300</p>
-      <div class="meta">Şık ve fonksiyonel</div>
+
+      <div class="card">
+        <div class="imgwrap">
+          <img src="images/canta4.jpg" alt="Dior Çanta">
+        </div>
+        <h3>Dior</h3>
+        <p class="price">200 TL</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer id="contact" style="display:none;">
-  <div style="max-width:1100px;margin:0 auto;padding:28px 16px;text-align:center;color:#cfcfcf">
-    © 2025 Gazi Çanta — Tüm hakları saklıdır. · İletişim: ornek@domain.com
-  </div>
-</footer>
+  <footer>
+    © 2025 Gazi Çanta — Tüm hakları saklıdır.
+  </footer>
 
-<!-- JAVASCRIPT: akış kontrolü -->
-<script>
-  const enterBtn = document.getElementById('enterBtn');
-  const welcome = document.getElementById('welcome');
-  const header = document.getElementById('siteHeader');
-  const info = document.getElementById('info');
-  const products = document.getElementById('products');
-  const seeProductsBtn = document.getElementById('seeProductsBtn');
-  const footer = document.getElementById('contact');
-
-  // Siteye Gir butonu: önce info göster
-  enterBtn.addEventListener('click', () => {
-    welcome.classList.add('hidden');
-    // küçük gecikme ile header + info göster
-    setTimeout(() => {
-      header.style.display = 'block';
-      info.style.display = 'block';
-      // scroll to info
-      info.scrollIntoView({behavior:'smooth'});
-    }, 600);
-  });
-
-  // "Çantalarımıza Göz At" -> info gizle, ürünleri göster
-  seeProductsBtn.addEventListener('click', () => {
-    info.style.display = 'none';
-    products.style.display = 'block';
-    footer.style.display = 'block';
-    products.scrollIntoView({behavior:'smooth'});
-  });
-
-  // Menü linkleri için helpers
-  function goToProducts(e){ e.preventDefault(); info.style.display='none'; products.style.display='block'; footer.style.display='block'; products.scrollIntoView({behavior:'smooth'}); }
-  function goToInfo(e){ e.preventDefault(); info.style.display='block'; products.style.display='none'; footer.style.display='none'; info.scrollIntoView({behavior:'smooth'}); }
-  function goToWelcome(e){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); }
-  function goToContact(e){ e.preventDefault(); footer.style.display='block'; footer.scrollIntoView({behavior:'smooth'}); }
-</script>
-
+  <script>
+    function enterSite(){
+      document.getElementById('welcome').classList.add('hidden');
+      document.getElementById('info').style.display = 'block';
+    }
+    function showInfo(){
+      document.getElementById('info').style.display = 'block';
+      document.getElementById('products').style.display = 'none';
+    }
+    function showProducts(){
+      document.getElementById('info').style.display = 'none';
+      document.getElementById('products').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
