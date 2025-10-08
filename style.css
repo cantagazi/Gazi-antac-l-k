@@ -1,14 +1,64 @@
-body {
+/* === GENEL AYARLAR === */
+* {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fafafa;
-  color: #222;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-/* HEADER */
+body {
+  background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* === HOŞ GELDİNİZ EKRANI === */
+.welcome-screen {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1606813902914-9b45bdfb49a7?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.welcome-screen h1 {
+  font-size: 3rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00;
+}
+
+.welcome-screen p {
+  font-size: 1.3rem;
+  margin-top: 15px;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.enter-btn {
+  margin-top: 30px;
+  padding: 12px 35px;
+  background: #ffd700;
+  border: none;
+  color: #111;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #ffd700;
+}
+
+.enter-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ffcc00, 0 0 50px #ffd700;
+}
+
+/* === MENÜ === */
 header {
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: rgba(255, 215, 0, 0.1);
+  backdrop-filter: blur(10px);
   padding: 15px 0;
   text-align: center;
   position: sticky;
@@ -16,177 +66,73 @@ header {
   z-index: 10;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.8em;
-}
-
-nav {
-  margin-top: 8px;
+header h2 {
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffcc00;
 }
 
 nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-nav a:hover {
-  color: #d42d2d;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #ffecd2, #fcb69f);
-  color: #333;
-}
-
-.hero h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.1em;
-}
-
-.hero button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #d42d2d;
   color: white;
-  cursor: pointer;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.1rem;
   transition: 0.3s;
 }
 
-.hero button:hover {
-  background-color: #a71d1d;
+nav a:hover {
+  color: #ffd700;
 }
 
-/* GALLERY */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  justify-items: center;
-  padding: 20px;
-}
-
-.gallery img {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.1);
-}
-
-/* ABOUT */
-.about {
-  text-align: center;
-  padding: 40px 20px;
-  background-color: #fff;
-}
-
-/* FOOTER */
-footer {
-  background-color: #222;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
-}
-
-/* MOBİL UYUMLU */
-@media (max-width: 600px) {
-  .hero h2 {
-    font-size: 1.5em;
-  }
-
-  .gallery img {
-    width: 150px;
-  }
-}
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  justify-items: center;
-  background-color: #fafafa;
-}
-
-.bag-item {
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bag-item img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.bag-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-}
-
-.bag-item p {
-  margin-top: 8px;
-  font-weight: 600;
-  color: #333;
-}
-/* --- GAZİ ÇANTA GALERİ TASARIMI --- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+/* === ÇANTALARIMIZ BÖLÜMÜ === */
+.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 25px;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #fff8f8, #f7f7f7);
-  justify-items: center;
+  padding: 60px 0;
+  background: #111;
 }
 
-.bag-item {
-  background-color: white;
-  border-radius: 16px;
+.card {
+  width: 260px;
+  background: #1f1f1f;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  width: 230px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  transition: 0.3s;
 }
 
-.bag-item img {
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+.card img {
   width: 100%;
-  height: 220px;
+  height: 230px;
   object-fit: cover;
-  transition: transform 0.4s ease;
-  border-bottom: 2px solid #f2f2f2;
 }
 
-.bag-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+.card h3 {
+  text-align: center;
+  margin: 15px 0 5px;
+  color: #ffd700;
 }
 
-.bag-item:hover img {
-  transform: scale(1.05);
-  filter: brightness(1.1);
+.card p {
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 15px;
 }
 
-.bag-item p {
-  padding: 10px 0 15px;
-  font-weight: 600;
-  color: #333;
-  letter-spacing: 0.3px;
-  background: #fff;
+/* === ANİMASYONLAR === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
