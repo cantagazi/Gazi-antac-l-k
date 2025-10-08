@@ -1,64 +1,107 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gazi Çanta</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- HOŞGELDİNİZ EKRANI -->
+  <div id="welcome-screen">
+    <div class="welcome-content">
+      <h1>💼 Gazi Çanta'ya Hoş Geldiniz</h1>
+      <p>Kalite, şıklık ve zarafetin adresi</p>
+      <button id="enter-btn">Giriş Yap</button>
+    </div>
+  </div>
 
   <!-- HEADER -->
-  <header>
-    <h1>👜 Gazi Çanta</h1>
-    <nav>
-      <a href="#">Ana Sayfa</a>
-      <a href="#">Modeller</a>
-      <a href="#">Hakkımızda</a>
-      <a href="#">İletişim</a>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">💼 <span class="brand">Gazi Çanta</span></div>
+      <nav class="nav">
+        <a href="#welcome-screen">Ana Sayfa</a>
+        <a href="#models">Çantalarımız</a>
+        <a href="#about">Hakkımızda</a>
+        <a href="#contact">İletişim</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
-    <h2>Tarzını Çantalarla Yansıt!</h2>
-    <p>Gazi Çanta, kalite ve şıklığı bir araya getirir.</p>
-    <button>Modelleri Keşfet</button>
+    <div class="container">
+      <h1>Tarzını Çantalarla Yansıt!</h1>
+      <p class="lead">Gazi Çanta — kalite, şıklık ve fonksiyonelliğin buluştuğu yer.</p>
+      <a class="btn" href="#models">Çantalarımızı Keşfet</a>
+    </div>
   </section>
 
-  <!-- GALLERY -->
-  <main class="gallery">
-  <div class="bag-item">
-    <img src="images/gucci.jpg" alt="Gucci Çanta">
-    <p>Gucci Çanta</p>
-  </div>
-  <div class="bag-item">
-    <img src="images/louis.jpg" alt="Louis Vuitton Çanta">
-    <p>Louis Vuitton Çanta</p>
-  </div>
-  <div class="bag-item">
-    <img src="images/tommy.jpg" alt="Tommy Hilfiger Çanta">
-    <p>Tommy Hilfiger Çanta</p>
-  </div>
-  <div class="bag-item">
-    <img src="images/prada.jpg" alt="Prada Çanta">
-    <p>Prada Çanta</p>
-  </div>
-  <div class="bag-item">
-    <img src="images/chanel.jpg" alt="Chanel Çanta">
-    <p>Chanel Çanta</p>
-  </div>
-</main>
-  <!-- ABOUT -->
-  <section class="about">
-    <h3>Hakkımızda</h3>
-    <p>Gazi Çanta olarak, zarafeti ve işlevselliği bir arada sunuyoruz. Her model, modern tarzı yansıtır.</p>
+  <!-- ÇANTALARIMIZ -->
+  <section id="models" class="models-section">
+    <div class="container">
+      <h2 class="section-title">Çantalarımız</h2>
+      <p class="section-sub">En popüler modellerimiz ve fiyatları</p>
+
+      <main class="gallery">
+        <div class="bag-item">
+          <img src="images/gucci.jpg" alt="Gucci Çanta">
+          <div class="meta">
+            <h3>Gucci</h3>
+            <p>₺300</p>
+          </div>
+        </div>
+
+        <div class="bag-item">
+          <img src="images/louis.jpg" alt="Louis Vuitton Çanta">
+          <div class="meta">
+            <h3>Louis Vuitton</h3>
+            <p>₺300</p>
+          </div>
+        </div>
+
+        <div class="bag-item">
+          <img src="images/prada.jpg" alt="Prada Çanta">
+          <div class="meta">
+            <h3>Prada</h3>
+            <p>₺300</p>
+          </div>
+        </div>
+
+        <div class="bag-item">
+          <img src="images/tommy.jpg" alt="Tommy Hilfiger Çanta">
+          <div class="meta">
+            <h3>Tommy Hilfiger</h3>
+            <p>₺300</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- HAKKIMIZDA -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>Hakkımızda</h2>
+      <p>Gazi Çanta olarak, kaliteye ve tasarıma önem veriyoruz. Her çantamız özenle seçilmiş materyallerden üretilir.</p>
+    </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Gazi Çanta. Tüm hakları saklıdır.</p>
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <p>© 2025 Gazi Çanta — Tüm hakları saklıdır.</p>
+    </div>
   </footer>
 
+  <!-- JS -->
+  <script>
+    const welcomeScreen = document.getElementById("welcome-screen");
+    const enterBtn = document.getElementById("enter-btn");
+    enterBtn.addEventListener("click", () => {
+      welcomeScreen.classList.add("hide");
+    });
+  </script>
 </body>
 </html>
